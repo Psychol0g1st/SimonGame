@@ -15,12 +15,12 @@ function newElement(){
 		sounds[pad].play();
 		sequence.push(pad);
 	}, 1000);
+	$("h1").text("Repeat all");
 	clickNum = 0;
 	
 }
 function checkRepeat(){
 	if(isStart){
-		$("h1").text("Repeat all");
 		$("."+this.className).fadeOut(100).fadeIn(100);
 		if(pads[sequence[clickNum]] === this.className){
 			sounds[sequence[clickNum]].play();
