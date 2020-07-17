@@ -7,13 +7,13 @@ body{
 }
 
 h1{
-	padding: 2.5% 0 0 0;
+	padding: 5% 0 0 0;
 	font-family: 'Press Start 2P';
 	font-size: 5vh;
 	color: #FEF2BF;
 }
 h4{
-	margin: 2.5% 0;
+	margin: 5% 0;
 	font-family: 'Press Start 2P';
 	font-size: 3vh;
 	color: #FEF2BF;
@@ -38,4 +38,22 @@ button{
 }
 .blue{
 	background-color: blue;
+}
+
+@media (max-width: 500px){
+	h1{
+		height: 2vh;
+		font-size: 3vh;
+		padding: 15% 0;
+	}
+	h4{
+		margin: 10% 0;
+		font-size: 3vh;
+	}
+	button{
+		width: 20vh;
+		height: 20vh;
+		margin: 2%;
+		border: 10px solid;
+	}
 }

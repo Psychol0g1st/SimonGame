@@ -12,7 +12,7 @@ function newElement(){
 	$("h4").text("Level: " + level);
 	var pad = Math.floor(Math.random()*4);
 	setTimeout(function(){
-		$("."+pads[pad]).fadeOut(100).fadeIn(100);
+		$("."+pads[pad]).fadeOut(fadeSpeed).fadeIn(fadeSpeed);
 		sounds[pad].play();
 		sequence.push(pad);
 		$("h1").text("Repeat All");
@@ -22,12 +22,15 @@ function newElement(){
 }
 function checkRepeat(){
 	if(isStart){
-		$("."+this.className).fadeOut(100).fadeIn(100);
+		sounds[sequence[clickNum]].play();
+		$("."+this.className).fadeOut(200).fadeIn(200);
 		if(pads[sequence[clickNum]] === this.className){
-			sounds[sequence[clickNum]].play();
 			clickNum++;
 			if(clickNum === level){
 				level++;
+				if(level%2 === 0){
+					fadeSpeed -= 10;
+				}
 				newElement();
 			}
 		} else {
@@ -48,6 +51,7 @@ var sequence = [];
 var pads = ["green", "red", "yellow", "blue"];
 var clickNum = 0;
 var sounds = [];
+var fadeSpeed = 200;
 sounds.push(new Audio("sounds/green.mp3"));
 sounds.push(new Audio("sounds/red.mp3"));
 sounds.push(new Audio("sounds/yellow.mp3"));
