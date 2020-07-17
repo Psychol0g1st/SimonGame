@@ -1,5 +1,6 @@
 function startGame(){
 	if(!isStart){
+		$("body").unbind();
 		isStart = true;
 		level = 1;
 		sequence = [];
@@ -9,13 +10,13 @@ function startGame(){
 function newElement(){
 	$("h1").text("New element:");
 	$("h4").text("Level: " + level);
+	var pad = Math.floor(Math.random()*4);
 	setTimeout(function(){
-		var pad = Math.floor(Math.random()*4);
 		$("."+pads[pad]).fadeOut(100).fadeIn(100);
 		sounds[pad].play();
 		sequence.push(pad);
+		$("h1").text("Repeat All");
 	}, 1000);
-	$("h1").text("Repeat all");
 	clickNum = 0;
 	
 }
@@ -33,6 +34,10 @@ function checkRepeat(){
 			sounds[sounds.length-1].play();
 			$("h1").text("You lose, press any key to restart");
 			isStart = false;
+			setTimeout(function(){
+				$("body").click(startGame);
+			}, 1000);
+			
 		}
 	}
 }
@@ -50,5 +55,5 @@ sounds.push(new Audio("sounds/blue.mp3"));
 sounds.push(new Audio("sounds/wrong.mp3"));
 
 $("html").keydown(startGame);
-$("html").click(startGame);
+$("body").click(startGame);
 $("button").click(checkRepeat);
