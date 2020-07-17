@@ -1,3 +1,30 @@
+var isStart = false;
+var level = 1;
+var sequence = [];
+var pads = ["green", "red", "yellow", "blue"];
+var clickNum = 0;
+var sounds = [];
+var fadeSpeed = 200;
+var i =0;
+var decrement = 20;
+/*
+sounds.push(new Audio("sounds/green.mp3"));
+sounds.push(new Audio("sounds/red.mp3"));
+sounds.push(new Audio("sounds/yellow.mp3"));
+sounds.push(new Audio("sounds/blue.mp3"));
+sounds.push(new Audio("sounds/wrong.mp3"));
+*/
+sounds.push(new Audio("sounds/byAtti/green.mp3"));
+sounds.push(new Audio("sounds/byAtti/red.mp3"));
+sounds.push(new Audio("sounds/byAtti/yellow.mp3"));
+sounds.push(new Audio("sounds/byAtti/blue.mp3"));
+sounds.push(new Audio("sounds/byAtti/wrong.mp3"));
+$("html").keydown(startGame);
+$("body").click(startGame);
+$("button").click(checkRepeat);
+
+
+
 function startGame(){
 	if(!isStart){
 		$("body").unbind();
@@ -65,22 +92,3 @@ function checkRepeat(){
 		}
 	}
 }
-
-var isStart = false;
-var level = 1;
-var sequence = [];
-var pads = ["green", "red", "yellow", "blue"];
-var clickNum = 0;
-var sounds = [];
-var fadeSpeed = 200;
-var i =0;
-var decrement = 20;
-sounds.push(new Audio("sounds/green.mp3"));
-sounds.push(new Audio("sounds/red.mp3"));
-sounds.push(new Audio("sounds/yellow.mp3"));
-sounds.push(new Audio("sounds/blue.mp3"));
-sounds.push(new Audio("sounds/wrong.mp3"));
-
-$("html").keydown(startGame);
-$("body").click(startGame);
-$("button").click(checkRepeat);
