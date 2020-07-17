@@ -1,2 +1,2 @@
 # SimonGame
-Simon Game by Shvetsj Anton
+Simon Game by Shvetsj Anton.
